@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class PracticeFormPage {
+public class TextBoxPage {
 
     private final CalendarComponent calendar = new CalendarComponent();
     private final ModalComponent modal = new ModalComponent();
@@ -30,82 +30,82 @@ public class PracticeFormPage {
     private final String stateField = "#state";
     private final String cityField = "#city";
 
-    public PracticeFormPage openPage() {
+    public TextBoxPage openPage() {
         open("/automation-practice-form");
         return this;
     }
 
-    public PracticeFormPage setFirstName(String firstName) {
+    public TextBoxPage setFirstName(String firstName) {
         $(firstNameField).setValue(firstName);
         return this;
     }
 
-    public PracticeFormPage setLastName(String lastName) {
+    public TextBoxPage setLastName(String lastName) {
         $(lastNameField).setValue(lastName);
         return this;
     }
 
-    public PracticeFormPage setEmail(String email) {
+    public TextBoxPage setEmail(String email) {
         $(emailField).setValue(email);
         return this;
     }
 
-    public PracticeFormPage setGender(String gender) {
+    public TextBoxPage setGender(String gender) {
         $(genderWrapper).find(byText(gender)).click();
         return this;
     }
 
-    public PracticeFormPage setMobile(String mobile) {
+    public TextBoxPage setMobile(String mobile) {
         $(mobileField).setValue(mobile);
         return this;
     }
 
-    public PracticeFormPage setDateOfBirth(String day, String month, String year) {
+    public TextBoxPage setDateOfBirth(String day, String month, String year) {
         $(dateOfBirthInput).click();
         calendar.setDate(day, month, year);
         return this;
     }
 
-    public PracticeFormPage setSubject(String subject) {
+    public TextBoxPage setSubject(String subject) {
         $(subjectsInput).setValue(subject).pressEnter();
         return this;
     }
 
-    public PracticeFormPage setHobby(String hobby) {
+    public TextBoxPage setHobby(String hobby) {
         $(hobbiesWrapper).find(byText(hobby)).click();
         return this;
     }
 
-    public PracticeFormPage uploadPicture(String pictureName) {
+    public TextBoxPage uploadPicture(String pictureName) {
         $(uploadPicture).uploadFromClasspath(pictureName);
         return this;
     }
 
-    public PracticeFormPage setAddress(String address) {
+    public TextBoxPage setAddress(String address) {
         $(addressField).setValue(address);
         return this;
     }
 
-    public PracticeFormPage setStateAndCity(String state, String city) {
+    public TextBoxPage setStateAndCity(String state, String city) {
         stateCity.selectStateAndCity(state, city);
         return this;
     }
 
-    public PracticeFormPage submitForm() {
+    public TextBoxPage submitForm() {
         $(submitButton).click();
         return this;
     }
 
-    public PracticeFormPage scrollToSubmit() {
+    public TextBoxPage scrollToSubmit() {
         $(submitButton).scrollTo();
         return this;
     }
 
-    public PracticeFormPage fillForm(String firstName, String lastName, String email,
-                                     String gender, String mobile, String day,
-                                     String month, String year, String subject,
-                                     String hobby, String picture, String address,
-                                     String state, String city) {
+    public TextBoxPage fillForm(String firstName, String lastName, String email,
+                                String gender, String mobile, String day,
+                                String month, String year, String subject,
+                                String hobby, String picture, String address,
+                                String state, String city) {
         return setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
@@ -119,8 +119,8 @@ public class PracticeFormPage {
                 .setStateAndCity(state, city);
     }
 
-    public PracticeFormPage fillMandatoryFields(String firstName, String lastName,
-                                                String email, String gender, String mobile) {
+    public TextBoxPage fillMandatoryFields(String firstName, String lastName,
+                                           String email, String gender, String mobile) {
         return setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
